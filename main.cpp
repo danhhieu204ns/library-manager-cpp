@@ -6,42 +6,51 @@
 
 using namespace std;
 
-void printTitle(){
+void printTitle()
+{
     cout << "Hello Main!!\n";
     cout << "WELCOME TO YEN LIBRARY!!!\n\n";
     return;
 }
-void getEnterKey(){
+void getEnterKey()
+{
     cout << "Nhan Enter de quay lai!\n";
     cin.ignore();
     cin.get();
     return;
 }
 
-int main(){
+int main()
+{
     // Insert code here
     // Tesst Book
     // Book book = Book();
     // book.setBookId(1);
 	    
     bool isOut = false;
+    git bar bool isOut = false;
     bool isLogged = false;
     bool isLegalChoose = true;
     Person person = Person();
 
-    while (1) {
+    while (1)
+    {
         system("cls");
         printTitle();
-        if (person.getPersonName() != "") {
+        if (person.getPersonName() != "")
+        {
             isLogged = true;
         }
-        else {
+        else
+        {
             isLogged = false;
         }
-    	if (isLogged) {
-    		cout << "WELCOME " << person.getPersonName() << " " << person.getPersonRole() << "\n\n";
-		}
-        else {
+        if (isLogged)
+        {
+            cout << "WELCOME " << person.getPersonName() << " " << person.getPersonRole() << "\n\n";
+        }
+        else
+        {
             cout << "Ban chua dang nhap!!!\n\n";
         }
         cout << "MENU\n";
@@ -64,114 +73,139 @@ int main(){
         cout << "17. Thoat chuong trinh.\n";
         cout << "\n";
         int choose;
-        if (isLegalChoose) {
+        if (isLegalChoose)
+        {
             cout << "Nhap lua chon: ";
         }
-        else {
+        else
+        {
             isLegalChoose = true;
             cout << "Lua chon khong hop le!!!\n";
             cout << "Vui long chon lai: ";
         }
         cin >> choose;
-        
-        switch (choose) {
-        case 1: //cout << "1. Dang nhap.\n";
-            if (!isLogged) {
+
+        switch (choose)
+        {
+        case 1: // cout << "1. Dang nhap.\n";
+            if (!isLogged)
+            {
                 person = loginUser();
             }
-            else {
+            else
+            {
                 cout << "Ban da dang nhap roi!!\n";
                 getEnterKey();
             }
             break;
-        case 2: //cout << "2. Dang ki.\n";
+        case 2: // cout << "2. Dang ki.\n";
             registerUser();
             break;
-        case 3: //cout << "3. Them sach.\n";
-            if (!isLogged) {
+        case 3: // cout << "3. Them sach.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "Admin") {
+            else
+            {
+                if (person.getPersonRole() == "Admin")
+                {
                     addBook();
                     cout << "Them sach thanh cong!!\n";
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho ADMIN!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 4: //cout << "4. Sua thong tin sach.\n";
-            if (!isLogged) {
+        case 4: // cout << "4. Sua thong tin sach.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "Admin") {
+            else
+            {
+                if (person.getPersonRole() == "Admin")
+                {
                     updateBook();
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho ADMIN!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 5: //cout << "5. Xoa sach.\n";
-            if (!isLogged) {
+        case 5: // cout << "5. Xoa sach.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "Admin") {
+            else
+            {
+                if (person.getPersonRole() == "Admin")
+                {
                     deleteBook();
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho ADMIN!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 6: //cout << "6. Muon sach.\n";
-            if (!isLogged) {
+        case 6: // cout << "6. Muon sach.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "User") {
+            else
+            {
+                if (person.getPersonRole() == "User")
+                {
                     addBorrowInfo();
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho User!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 7: //cout << "7. Tra sach.\n";
-            if (!isLogged) {
+        case 7: // cout << "7. Tra sach.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "User") {
+            else
+            {
+                if (person.getPersonRole() == "User")
+                {
                     deleteBorrowInfo();
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho ADMIN!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 8: //cout << "8. Lay thong tin cac quyen sach.\n";
+        case 8: // cout << "8. Lay thong tin cac quyen sach.\n";
             displayBook();
             getEnterKey();
             break;
-        case 9: //cout << "9. Lay thong tin 1 quyen sach.\n";
+        case 9: // cout << "9. Lay thong tin 1 quyen sach.\n";
             getOneBook();
             getEnterKey();
             break;
-        case 10: //cout << "10. Lay thong tin tat ca cac eBook hien co.\n";
+        case 10: // cout << "10. Lay thong tin tat ca cac eBook hien co.\n";
             displayEBook();
             getEnterKey();
             break;
@@ -180,85 +214,103 @@ int main(){
             getOneEBook();
             getEnterKey();
             break;
-        case 12: //cout << "12. Hien thi tat ca cac quyen sach da muon.\n";
-            if (!isLogged) {
+        case 12: // cout << "12. Hien thi tat ca cac quyen sach da muon.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "User") {
+            else
+            {
+                if (person.getPersonRole() == "User")
+                {
                     showBorrowedBook(person.getPersonId());
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho User!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 13: //cout << "13. Hien thi tat ca cac quyen sach cua 1 nguoi dung da muon.\n";
-            if (!isLogged) {
+        case 13: // cout << "13. Hien thi tat ca cac quyen sach cua 1 nguoi dung da muon.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "Admin") {
+            else
+            {
+                if (person.getPersonRole() == "Admin")
+                {
                     showBorrowedBookWithUserId();
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho Admin!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 14: //cout << "14. Chinh sua thong tin ca nhan.\n";
-            if (!isLogged) {
+        case 14: // cout << "14. Chinh sua thong tin ca nhan.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
+            else
+            {
                 updatePeopleInfo(person.getPersonId());
             }
             getEnterKey();
             break;
-        case 15: //cout << "15. Chinh sua thong tin ca nhan cua Users.\n";
-            if (!isLogged) {
+        case 15: // cout << "15. Chinh sua thong tin ca nhan cua Users.\n";
+            if (!isLogged)
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Hay dang nhap de su dung tinh nang nay!!\n";
             }
-            else {
-                if (person.getPersonRole() == "Admin") {
+            else
+            {
+                if (person.getPersonRole() == "Admin")
+                {
                     updatePeopleInfoByAdmin();
                 }
-                else {
+                else
+                {
                     cout << "Chuc nang nay chi danh cho Admin!!\n";
                 }
             }
             getEnterKey();
             break;
-        case 16: //cout << "16. Dang xuat.\n";
-            if (isLogged) {
+        case 16: // cout << "16. Dang xuat.\n";
+            if (isLogged)
+            {
                 person = logoutUser(person);
             }
-            else {
+            else
+            {
                 cout << "Ban chua dang nhap!!\n";
                 cout << "Nhan Enter de quay lai!\n";
                 cin.ignore();
                 cin.get();
             }
             break;
-        case 17: //cout << "17. Thoat chuong trinh.\n";
+        case 17: // cout << "17. Thoat chuong trinh.\n";
             cout << "17. Thoat chuong trinh.\n";
             isOut = true;
             break;
-        
+
         default:
             isLegalChoose = false;
             break;
         }
-        if (isOut) {
+        if (isOut)
+        {
             cout << "Hen gap lai!!!\n";
             break;
         }
     }
     return 0;
 }
+// hello mn
