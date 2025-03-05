@@ -37,7 +37,7 @@ int main(){
             isLogged = false;
         }
     	if (isLogged) {
-    		cout << "WELCOME " << person.getPersonName() << " " << person.getPersonRole() << "\n\n";
+    		cout << "WELCOME hihi " << person.getPersonName() << " " << person.getPersonRole() << "\n\n";
 		}
         else {
             cout << "Ban chua dang nhap!!!\n\n";
